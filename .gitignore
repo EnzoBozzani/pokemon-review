@@ -17,3 +17,5 @@ artifacts/
 *.sln.docstates
 
 notes.txt
+
+appsettings.json

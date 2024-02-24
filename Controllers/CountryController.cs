@@ -54,7 +54,7 @@ namespace PokemonReview.Controllers
             return Ok(country);
         }
 
-        [HttpGet("/owners/{ownerId}")]
+        [HttpGet("owners/{ownerId}")]
         [ProducesResponseType(200, Type = typeof(Country))]
         [ProducesResponseType(400)]
         public IActionResult GetCountryByOwner(int ownerId)
@@ -69,7 +69,7 @@ namespace PokemonReview.Controllers
             return Ok(country);
         }
 
-        [HttpGet("/{countryId}/owners")]
+        [HttpGet("{countryId}/owners")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Owner>))]
         [ProducesResponseType(400)]
         public IActionResult GetOwnersFromCountry(int countryId)
@@ -81,7 +81,7 @@ namespace PokemonReview.Controllers
                 return NotFound();
             }
 
-            var owners = _countryRepository.GetOwnersFromCountry(countryId);
+            var owners = _mapper.Map<List<OwnerDTO>>(_countryRepository.GetOwnersFromCountry(countryId));
 
             if (!ModelState.IsValid)
             {

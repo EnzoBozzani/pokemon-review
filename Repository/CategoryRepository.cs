@@ -44,5 +44,12 @@ namespace PokemonReview.Repository
 
             return Save();
         }
+
+        public bool UpdateCategory(Category category)
+        {
+            _context.Update(category);
+
+            return Save();
+        }
     }
 }

@@ -47,5 +47,11 @@ namespace PokemonReview.Repository
             _context.Add(owner);
             return Save();
         }
+
+        public bool UpdateOwner(Owner owner)
+        {
+            _context.Update(owner);
+            return Save();
+        }
     }
 }

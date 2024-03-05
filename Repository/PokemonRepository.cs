@@ -75,5 +75,11 @@ namespace PokemonReview.Repository
 
             return Save();
         }
+
+        public bool UpdatePokemon(Pokemon pokemon)
+        {
+            _context.Update(pokemon);
+            return Save();
+        }
     }
 }
